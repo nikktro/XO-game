@@ -23,6 +23,9 @@ public class GameViewController: UIViewController {
             self.currentState.begin()
         }
     }
+
+    var opponentSelector = 0
+    private var player: Player!
     
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +33,23 @@ public class GameViewController: UIViewController {
         
         gameboardView.onSelectPosition = { [weak self] position in
             guard let self = self else { return }
+            guard let playerInputState = self.currentState as? PlayerInputState else { return }
+            self.player = playerInputState.player.next
             self.currentState.addMark(at: position)
             if self.currentState.isCompleted {
                 self.goToNextState()
+                
+                // computer turn if no winner exist
+                if let _ = self.referee.determineWinner() {
+                } else {
+                    if self.opponentSelector == 1 {
+                        self.AIState()
+                        self.currentState.addMark(at: position)
+                        self.player = .first
+                        self.goToNextState()
+                    }
+                }
+                
             } else {
                 print("State is not completed")
             }
@@ -55,19 +72,25 @@ public class GameViewController: UIViewController {
             return
         }
         
-        
-        
-        if let playerInputState = currentState as? PlayerInputState {
-            let player = playerInputState.player.next
-            self.currentState = PlayerInputState(player: playerInputState.player.next,
-                                                 gameViewController: self,
-                                                 gameboard: gameboard,
-                                                 gameboardView: gameboardView,
-                                                 markViewPrototype: player.markViewPrototype)
-        }
+        self.currentState = PlayerInputState(player: player,
+                                             gameViewController: self,
+                                             gameboard: gameboard,
+                                             gameboardView: gameboardView,
+                                             markViewPrototype: player.markViewPrototype)
+    }
+    
+    private func AIState() {
+        self.currentState = ComputerInputState(player: player,
+                                               gameViewController: self,
+                                               gameboard: gameboard,
+                                               gameboardView: gameboardView,
+                                               markViewPrototype: player.markViewPrototype)
     }
     
     @IBAction func restartButtonTapped(_ sender: UIButton) {
+        self.goToFirstState()
+        gameboard.clear()
+        gameboardView.clear()
     }
 }
 
