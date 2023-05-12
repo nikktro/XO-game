@@ -73,6 +73,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6781C0762A0E8EA700D3C7C6 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				F874E4742224621100364CAE /* Main.storyboard */,
+				F874E4792224621300364CAE /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		6781C0772A0E8ECF00D3C7C6 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F874E4702224621100364CAE /* AppDelegate.swift */,
+				F874E47C2224621300364CAE /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		6781C0782A0E902700D3C7C6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F874E4772224621300364CAE /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		BA7E707E250AAF2F0098A8E0 /* Logging */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,15 +151,11 @@
 				BA7E707E250AAF2F0098A8E0 /* Logging */,
 				BAB2B11F250A77E3003EA6E0 /* Prototype */,
 				BAB2B116250A391A003EA6E0 /* GameState */,
-				F874E4702224621100364CAE /* AppDelegate.swift */,
-				F874E4722224621100364CAE /* GameViewController.swift */,
-				F874E4F02225DFF700364CAE /* Referee.swift */,
+				6781C0762A0E8EA700D3C7C6 /* Storyboards */,
 				F874E4E62225CB3F00364CAE /* Models */,
 				F874E4E52225CB3100364CAE /* Views */,
-				F874E4772224621300364CAE /* Assets.xcassets */,
-				F874E4742224621100364CAE /* Main.storyboard */,
-				F874E4792224621300364CAE /* LaunchScreen.storyboard */,
-				F874E47C2224621300364CAE /* Info.plist */,
+				6781C0782A0E902700D3C7C6 /* Resources */,
+				6781C0772A0E8ECF00D3C7C6 /* App */,
 			);
 			path = "XO-game";
 			sourceTree = "<group>";
@@ -153,6 +175,8 @@
 			children = (
 				F874E4E02225CAAF00364CAE /* MarkViews */,
 				F874E4DA2225C1AC00364CAE /* GameboardView.swift */,
+				F874E4722224621100364CAE /* GameViewController.swift */,
+				F874E4F02225DFF700364CAE /* Referee.swift */,
 				B177FBAB2520B99D006ECB4F /* MainMenuViewController.swift */,
 			);
 			path = Views;
@@ -408,7 +432,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T2HBBQ5KF9;
-				INFOPLIST_FILE = "XO-game/Info.plist";
+				INFOPLIST_FILE = "XO-game/App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -426,7 +450,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T2HBBQ5KF9;
-				INFOPLIST_FILE = "XO-game/Info.plist";
+				INFOPLIST_FILE = "XO-game/App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
